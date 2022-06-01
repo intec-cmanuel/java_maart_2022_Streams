@@ -29,6 +29,28 @@ public class StreamDemo {
 
     private static void withStreams() {
         Integer[] arr = new Integer[]{45,88,5,66,54,12,35,88,41,52,12};
+        Double[] dArr = new Double[]{4.6,5.5,63.1};
+
+        Stream<Double> stream = Stream.of(dArr);
+        stream = stream.filter(number -> number < 50);
+        stream = stream.map(number -> number * 2);
+        stream = stream.limit(3);
+        stream.forEach(number -> System.out.println("- " + number));
+
+
+
+
+        Stream<Double> stream2 = Stream.of(dArr);
+        Stream<Double> stream3 = stream2.filter(number -> number < 50);
+        Stream<Double> stream4 = stream3.map(number -> number * 2);
+        stream4 = stream4.limit(3);
+        stream4.forEach(number -> System.out.println("- " + number));
+
+        stream3.forEach(number -> System.out.println(number));
+
+
+
+
 
         Stream.of(arr)
                 .filter(number -> number < 50)
